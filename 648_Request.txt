@@ -1,0 +1,17 @@
+POST https://mt.fjii.com/api/wechatShareTask/shareSum HTTP/1.1
+Host: mt.fjii.com
+Connection: keep-alive
+Content-Length: 302
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36wpsystem
+Content-Type: application/json;charset=UTF-8
+Origin: https://mt.fjii.com
+X-Requested-With: com.fuzhou.wpsystem
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: token=35d0327a-b5f0-4a26-94bb-18aec8a546e1
+
+{"isLoadTip":"分享中...","user_id":"1316927879329746944","wechat_share_task_id":"1417030410294136832","type":2,"token_header":"xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D"}

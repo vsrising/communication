@@ -1,0 +1,78 @@
+
+ids=["1399287517181775872", "1399263555672477696", "1399263385979326464", "1399262971661783040", "1399262260966330368", "1399262135749578752", "1399262041310629888", "1399261944539648000", "1399261808346402816", "1399261713282502656", "1399261616511520768", "1399261477587783680", "1399261368120643584", "1399260937520812032", "1399260740048785408", "1399172630539538432", "1399172558783385600", "1399172166758567936", "1399171073278349312", "1398948831911088128", "1398947319109521408", "1398939468572004352", "1398939932529135616", "1398939699254530048", "1398939192293199872", "1398837969753870336", "1398837839214546944", "1398837617503637504", "1398837446074044416", "1398837320811155456", "1398837181686091776", "1398831005044969472", "1398601619813306368", "1398601306419105792", "1398585518492618752", "1398585255400706048", "1398477577668136960", "1398477430800388096", "1398476416374411264", "1398476306106159104", "1398476132633939968", "1398475956217319424", "1398475804937162752", "1398475656760791040", "1398475490716684288", "1398467038204268544", "1398232184501964800", "1398231916230086656", "1398231596053696512", "1398231377484320768", "1398230519581380608", "1398200789788397568", "1398200684465229824", "1398200361675788288", "1398200234479325184", "1398200052765298688", "1398199706307399680", "1398198395922944000", "1398198037318340608", "1398197944762634240", "1398194321420849152", "1398082612416876545", "1398077465896816640", "1398076769185173504", "1398075899752091648", "1398075626757427200", "1398075532297506816", "1398075282920968193", "1398075034479759360", "1398074820599615488", "1398074481234284544", "1397844833049120768", "1397843204908388352", "1397840857561960448", "1397840292043952128", "1397840144811298816", "1397839819622715392", "1397839682313785344", "1397839498628435968", "1397839385562583040", "1397839187432050688", "1397838951154323456", "1397838618713788416", "1397838432369250304", "1397838115913207808", "1397837782277296128", "1397837611686563840", "1397837395851874304", "1397837104347746304", "1397836253679980544", "1397830026585575424", "1397722014646669312", "1397717328313061376", "1397716681115176960", "1397716425640120320", "1397716015621738496", "1397493371269943296", "1397492487098077184", "1397491666616717312", "1397491365830594560"]
+#这个地方就是要进行刷分的通信头条每条信息的id
+
+import requests
+import time 
+url="https://mt.fjii.com/api/wechatShareTask/shareSum"
+
+#payload="{\"isLoadTip\":\"...\",\"user_id\":\"1316927879329746944\",\"wechat_share_task_id\":\"1414761988562751488\",\"type\":2,\"token_header\":\"xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D\"}"
+headers={
+'POSThttps':'//mt.fjii.com/api/wechatShareTask/shareSumHTTP/1.1',
+'Host':'mt.fjii.com',
+'Connection':'keep-alive',
+'Content-Length':'302',
+'Accept':'application/json,text/plain,*/*',
+'User-Agent':'Mozilla/5.0(Linux;Android10;ALP-AL00Build/HUAWEIALP-AL00;wv)AppleWebKit/537.36(KHTML,likeGecko)Version/4.0Chrome/83.0.4103.106MobileSafari/537.36wpsystem',
+'Content-Type':'application/json;charset=UTF-8',
+'Origin':'https://mt.fjii.com',
+'X-Requested-With':'com.fuzhou.wpsystem',
+'Sec-Fetch-Site':'same-origin',
+'Sec-Fetch-Mode':'cors',
+'Sec-Fetch-Dest':'empty',
+'Accept-Encoding':'gzip,deflate',
+'Accept-Language':'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+'Cookie':'token=838d1d32-03a7-47a0-9e52-e0797c8968d9'
+}
+
+
+payload="{\"isLoadTip\":\"...\",\"user_id\":\"1316927879329746944\",\"wechat_share_task_id\":\""
+#for i in range(173740533760,973740533760):
+nums=1
+for i in ids:
+    end="\",\"type\":1,\"token_header\":\"xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D\"}"
+    payloads=payload+i+end
+    response = requests.request("POST", url, headers=headers, data=payloads)
+    print(response.text)
+    time.sleep(3)     
+    
+    end="\",\"type\":2,\"token_header\":\"xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D\"}"
+    payloads=payload+i+end
+    response = requests.request("POST", url, headers=headers, data=payloads)
+    print(response.text)
+    time.sleep(3)
+    
+    end="\",\"type\":3,\"token_header\":\"xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D\"}"
+    payloads=payload+i+end
+    response = requests.request("POST", url, headers=headers, data=payloads)
+    print(response.text)
+    time.sleep(3)  
+    
+    end="\",\"type\":4,\"token_header\":\"xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D\"}"
+    payloads=payload+i+end
+    response = requests.request("POST", url, headers=headers, data=payloads)
+    print(response.text)
+    time.sleep(3)  
+    
+    
+    end="\",\"type\":5,\"token_header\":\"xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D\"}"
+    payloads=payload+i+end
+    response = requests.request("POST", url, headers=headers, data=payloads)
+    print(response.text)
+    time.sleep(3)
+    
+    end="\",\"type\":6,\"token_header\":\"xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D\"}"
+    payloads=payload+i+end
+    response = requests.request("POST", url, headers=headers, data=payloads)
+    print(response.text)
+    time.sleep(3)
+    print(nums)
+    
+    
+    
+    
+    
+    
+    
+    nums=nums+1
+print("刷分结束")

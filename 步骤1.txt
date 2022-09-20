@@ -1,0 +1,30 @@
+###抽取所有数据历史数据（按时间）重要
+import requests
+
+url = "https://mt.fjii.com/api/wechatShareTask/list"
+
+
+payload="title=&serviceId=1&pageSize=10000&pageNo=1&start_time=2019-07-15%2018%3A35%3A00&end_time=2021-05-31%2018%3A36%3A00&token_header=xOjqTc9vix%2FIQVwVMZmkpCwp4B2WafoeT991Rnx%2FJhmYF6H9Xv46EkHqmsU%2BjVVIZyeIygoJ8sDqdM7d4AfPy19p0ULjujQFFQMUEzFwNVRNw%2FJo8ou6CGPkfB%2B%2FLMlgX2y%2BudFF9SrsZ5kWvffVJg%3D%3D"
+#注意这里有start_time 和end_time ,这个就是需要获取哪段时间的每条通信头条的id
+#token_header是你的token，需要用Fiddler获取，注意的是通信头条会每个几天更新token，更新后你得重新用Fiddler对token进行获取更新到这里
+
+headers = {
+  'Host': 'mt.fjii.com',
+  'Connection': 'keep-alive',
+  'Content-Length': '263',
+  'Accept': 'application/json, text/plain, */*',
+  'User-Agent': 'Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36wpsystem',
+  'Content-Type': 'application/x-www-form-urlencoded',
+  'Origin': 'https://mt.fjii.com',
+  'X-Requested-With': 'com.fuzhou.wpsystem',
+  'Sec-Fetch-Site': 'same-origin',
+  'Sec-Fetch-Mode': 'cors',
+  'Sec-Fetch-Dest': 'empty',
+  'Accept-Encoding': 'gzip, deflate',
+  'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'Cookie': 'token=838d1d32-03a7-47a0-9e52-e0797c8968d9'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+#print(response.text)

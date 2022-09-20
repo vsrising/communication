@@ -1,0 +1,19 @@
+#处理数据，提取id
+import json
+data=json.loads(response.text)
+dataid=data['data']['list']
+#print(dataid)
+data_by_user = {}
+list_id=[]
+for d in dataid:
+    data_by_user[d["id"]] = {k:d[k] for k in ("id", "urlType")}
+    #print(data_by_user[d["id"]])
+    list_id2=data_by_user.keys()
+    #list_2=data_by_user.values()
+    #print(list_id2)
+    #print(list_2)
+    list_id=list_id2
+file=open('C:\\data2.txt','w')
+file.write(str(list_id)); 
+file.close() 
+   
